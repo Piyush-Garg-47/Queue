@@ -1,0 +1,52 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+public class TwoStack {
+    static class queue{
+        static Stack <Integer> s1 =new Stack <>();
+        static Stack <Integer> s2 =new Stack <>();
+         public static boolean isEmpty(){
+           s1.isEmpty();
+         }
+         // add
+         public static void add (int data){
+            while(!s1.isEmpty()){
+                s2.push(s1.pop());
+            }
+            s1.push(data);
+            while(!s2.isEmpty()){
+                s1.push(s2.pop());
+            }
+         }
+         // remove 
+         public static int remove(){
+            if(isEmpty()){
+                System.out.println("queue is empty ");
+                return -1;
+            }
+           return  s1.pop();
+         }
+         // peek 
+         public static int peek(){
+            if(isEmpty()){
+                System.out.println("queue is empty ");
+                return -1;
+            }
+           return  s1.peek();
+         }
+
+    }
+    public static void main(String[] args) {
+        System.out.println("two stack qustion ");
+       // Queue q =new Queue();
+        Queue<Integer> q = new LinkedList<>(); 
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        while ( !q.isEmpty()){
+            System.out.println(q.peek());
+            q.remove();
+        }
+    }
+}
